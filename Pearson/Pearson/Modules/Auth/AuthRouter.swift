@@ -13,11 +13,11 @@
 import UIKit
 
 @objc protocol AuthRoutingLogic {
-    //func routeToSomewhere(segue: UIStoryboardSegue?)
+    func routeToCources()
 }
 
 protocol AuthDataPassing {
-    var dataStore: AuthDataStore? { get }
+    var dataStore: AuthDataStore? { get set }
 }
 
 class AuthRouter: NSObject, AuthRoutingLogic, AuthDataPassing {
@@ -26,32 +26,17 @@ class AuthRouter: NSObject, AuthRoutingLogic, AuthDataPassing {
   
     // MARK: Routing
   
-    //func routeToSomewhere(segue: UIStoryboardSegue?)
-    //{
-    //  if let segue = segue {
-    //    let destinationVC = segue.destination as! SomewhereViewController
-    //    var destinationDS = destinationVC.router!.dataStore!
-    //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-    //  } else {
-    //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    //    let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-    //    var destinationDS = destinationVC.router!.dataStore!
-    //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-    //    navigateToSomewhere(source: viewController!, destination: destinationVC)
-    //  }
-    //}
+    func routeToCources() {
+        let destinationVC = UIStoryboard.main().viewController(withID: .tabBarController) as! MainTabBarViewController
+        navigateToCources(source: viewController!, destination: destinationVC)
+    }
 
     // MARK: Navigation
   
-    //func navigateToSomewhere(source: AuthViewController, destination: SomewhereViewController)
-    //{
-    //  source.show(destination, sender: nil)
-    //}
+    func navigateToCources(source: AuthViewController, destination: MainTabBarViewController) {
+        appDelegate().switchRootViewController(to: destination)
+    }
   
-    // MARK: Passing data
   
-    //func passDataToSomewhere(source: AuthDataStore, destination: inout SomewhereDataStore)
-    //{
-    //  destination.name = source.name
-    //}
+    
 }

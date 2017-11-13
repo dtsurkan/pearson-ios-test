@@ -13,12 +13,18 @@
 import UIKit
 
 protocol AuthDisplayLogic: class {
-    func displaySomething(viewModel: Auth.Something.ViewModel)
+    func displayError(viewModel: Auth.AuthProcess.ViewModel)
+    func displayAuthentificatedUser(viewModel: Auth.AuthProcess.ViewModel)
 }
 
 class AuthViewController: UIViewController, AuthDisplayLogic {
     var interactor: AuthBusinessLogic?
     var router: (NSObjectProtocol & AuthRoutingLogic & AuthDataPassing)?
+    
+    // MARK: - Outlets
+    
+    @IBOutlet weak var loginTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
 
     // MARK: Object lifecycle
   
@@ -47,34 +53,46 @@ class AuthViewController: UIViewController, AuthDisplayLogic {
         router.dataStore = interactor
     }
   
-    // MARK: Routing
-  
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let scene = segue.identifier {
-            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-            if let router = router, router.responds(to: selector) {
-                router.perform(selector, with: segue)
-            }
-        }
-    }
   
     // MARK: View lifecycle
   
     override func viewDidLoad() {
         super.viewDidLoad()
-        doSomething()
+        configureView()
+    }
+    
+    // MARK: - AuthDisplayLogic
+    
+    func displayError(viewModel: Auth.AuthProcess.ViewModel) {
+        showAlert(withTitle: "Auth Error", message: viewModel.printableError)
+    }
+    
+    func displayAuthentificatedUser(viewModel: Auth.AuthProcess.ViewModel) {
+        router?.routeToCources()
     }
   
-    // MARK: Do something
-  
-    //@IBOutlet weak var nameTextField: UITextField!
-  
-    func doSomething() {
-        let request = Auth.Something.Request()
-        interactor?.doSomething(request: request)
+    // MARK: - Internal
+    
+    private func configureView() {
+        loginTextField.text = router?.dataStore?.login
+        loginTextField.isUserInteractionEnabled = false
     }
-  
-    func displaySomething(viewModel: Auth.Something.ViewModel) {
-        //nameTextField.text = viewModel.name
+    
+    private func showAlert(withTitle title: String, message: String?) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    // MARK: - Actions
+    
+    @IBAction func loginButtonPressed(_ sender: Any) {
+        if let text = passwordTextField.text, text.isEmpty {
+            showAlert(withTitle: "Warning", message: "Password can't be empty")
+            return
+        }
+        let request = Auth.AuthProcess.Request(login: "devdemo", password: "Secret12")
+        interactor?.auth(request: request)
     }
 }

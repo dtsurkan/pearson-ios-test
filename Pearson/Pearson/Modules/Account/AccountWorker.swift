@@ -14,6 +14,17 @@ import UIKit
 
 class AccountWorker {
   
-    func doSomeWork() {
+    func fetchProfile(completion: @escaping (User?, String?) -> Void) {
+        pearsonProvider.request(.getUserProfile) { (result) in
+            do {
+                let response = try result.dematerialize()
+                let json = try JSONSerialization.jsonObject(with: response.data, options: []) as! [String : Any]
+                let user = User.parse(data: json)
+                completion(user, nil)
+            } catch {
+                let printableError = error as CustomStringConvertible
+                completion(nil, printableError as? String)
+            }
+        }
     }
 }

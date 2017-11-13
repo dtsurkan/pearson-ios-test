@@ -13,16 +13,22 @@
 import UIKit
 
 protocol AuthPresentationLogic {
-    func presentSomething(response: Auth.Something.Response)
+    func presentAuthentificaedUser(response: Auth.AuthProcess.Response)
+    func presentError(response: Auth.AuthProcess.Response)
 }
 
 class AuthPresenter: AuthPresentationLogic {
     weak var viewController: AuthDisplayLogic?
   
-    // MARK: Do something
+    // MARK: - Auth
   
-    func presentSomething(response: Auth.Something.Response) {
-        let viewModel = Auth.Something.ViewModel()
-        viewController?.displaySomething(viewModel: viewModel)
+    func presentAuthentificaedUser(response: Auth.AuthProcess.Response) {
+        let viewModel = Auth.AuthProcess.ViewModel(accessToken: response.accessToken, printableError: response.printableError)
+        viewController?.displayAuthentificatedUser(viewModel: viewModel)
+    }
+    
+    func presentError(response: Auth.AuthProcess.Response) {
+        let viewModel = Auth.AuthProcess.ViewModel(accessToken: response.accessToken, printableError: response.printableError)
+        viewController?.displayError(viewModel: viewModel)
     }
 }

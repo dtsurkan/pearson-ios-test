@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7FDA42FB1FB9FCC100B04F9D /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FDA42FA1FB9FCC100B04F9D /* Auth.storyboard */; };
+		7FDA42FD1FB9FCEA00B04F9D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDA42FC1FB9FCEA00B04F9D /* LoginViewController.swift */; };
+		7FDA43031FB9FE8B00B04F9D /* UIStoryboardExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDA43021FB9FE8B00B04F9D /* UIStoryboardExtensions.swift */; };
+		7FDA43061FB9FF3C00B04F9D /* XAppToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDA43051FB9FF3C00B04F9D /* XAppToken.swift */; };
+		7FDA43081FBA02CD00B04F9D /* PearsonAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDA43071FBA02CD00B04F9D /* PearsonAPI.swift */; };
+		7FDA430A1FBA143C00B04F9D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FDA43091FBA143C00B04F9D /* Main.storyboard */; };
+		7FDA430D1FBA158600B04F9D /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDA430C1FBA158600B04F9D /* MainTabBarViewController.swift */; };
+		7FDA43101FBA16D500B04F9D /* AppHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDA430F1FBA16D500B04F9D /* AppHelper.swift */; };
+		7FDA43121FBA200800B04F9D /* PearsonAuthenticatedAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDA43111FBA200800B04F9D /* PearsonAuthenticatedAPI.swift */; };
+		7FDA43141FBA26D400B04F9D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDA43131FBA26D400B04F9D /* User.swift */; };
 		949D808B1FB4C1BE0090C80C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949D808A1FB4C1BE0090C80C /* ViewController.swift */; };
 		949D80A71FB4C2FE0090C80C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949D809D1FB4C2FE0090C80C /* AppDelegate.swift */; };
 		949D80A81FB4C2FE0090C80C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 949D80A01FB4C2FE0090C80C /* Assets.xcassets */; };
@@ -32,9 +42,22 @@
 		949D80D81FB4C4DD0090C80C /* CoursesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949D80D21FB4C4DD0090C80C /* CoursesRouter.swift */; };
 		949D80D91FB4C4DD0090C80C /* CoursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949D80D31FB4C4DD0090C80C /* CoursesViewController.swift */; };
 		949D80DA1FB4C4DD0090C80C /* CoursesWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949D80D41FB4C4DD0090C80C /* CoursesWorker.swift */; };
+		AE92FF5E821DA94587F4A498 /* Pods_Pearson.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C37DE2B59A2CB767403CA35 /* Pods_Pearson.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C37DE2B59A2CB767403CA35 /* Pods_Pearson.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pearson.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B5440B70895D2D535C68993 /* Pods-Pearson.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pearson.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pearson/Pods-Pearson.release.xcconfig"; sourceTree = "<group>"; };
+		7FDA42FA1FB9FCC100B04F9D /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
+		7FDA42FC1FB9FCEA00B04F9D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		7FDA43021FB9FE8B00B04F9D /* UIStoryboardExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStoryboardExtensions.swift; sourceTree = "<group>"; };
+		7FDA43051FB9FF3C00B04F9D /* XAppToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XAppToken.swift; sourceTree = "<group>"; };
+		7FDA43071FBA02CD00B04F9D /* PearsonAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PearsonAPI.swift; sourceTree = "<group>"; };
+		7FDA43091FBA143C00B04F9D /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		7FDA430C1FBA158600B04F9D /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
+		7FDA430F1FBA16D500B04F9D /* AppHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppHelper.swift; sourceTree = "<group>"; };
+		7FDA43111FBA200800B04F9D /* PearsonAuthenticatedAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PearsonAuthenticatedAPI.swift; sourceTree = "<group>"; };
+		7FDA43131FBA26D400B04F9D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		949D80851FB4C1BE0090C80C /* Pearson.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pearson.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		949D808A1FB4C1BE0090C80C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		949D809D1FB4C2FE0090C80C /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +84,7 @@
 		949D80D21FB4C4DD0090C80C /* CoursesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesRouter.swift; sourceTree = "<group>"; };
 		949D80D31FB4C4DD0090C80C /* CoursesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesViewController.swift; sourceTree = "<group>"; };
 		949D80D41FB4C4DD0090C80C /* CoursesWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesWorker.swift; sourceTree = "<group>"; };
+		D5E9F2143332A1590FBF9D83 /* Pods-Pearson.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pearson.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pearson/Pods-Pearson.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,17 +92,90 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE92FF5E821DA94587F4A498 /* Pods_Pearson.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2EBB57A85DC81A7153341DF2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0C37DE2B59A2CB767403CA35 /* Pods_Pearson.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7FDA42FE1FB9FE7D00B04F9D /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				7FDA430E1FBA16C800B04F9D /* Helpers */,
+				7FDA430B1FBA157F00B04F9D /* Views */,
+				7FDA42FF1FB9FE7D00B04F9D /* Models */,
+				7FDA43001FB9FE7D00B04F9D /* Extensions */,
+				7FDA43011FB9FE7D00B04F9D /* Services */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		7FDA42FF1FB9FE7D00B04F9D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7FDA43001FB9FE7D00B04F9D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7FDA43021FB9FE8B00B04F9D /* UIStoryboardExtensions.swift */,
+				7FDA43131FBA26D400B04F9D /* User.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		7FDA43011FB9FE7D00B04F9D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				7FDA43041FB9FF3600B04F9D /* Networking */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		7FDA43041FB9FF3600B04F9D /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				7FDA43051FB9FF3C00B04F9D /* XAppToken.swift */,
+				7FDA43071FBA02CD00B04F9D /* PearsonAPI.swift */,
+				7FDA43111FBA200800B04F9D /* PearsonAuthenticatedAPI.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		7FDA430B1FBA157F00B04F9D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7FDA430C1FBA158600B04F9D /* MainTabBarViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7FDA430E1FBA16C800B04F9D /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				7FDA430F1FBA16D500B04F9D /* AppHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		949D807C1FB4C1BE0090C80C = {
 			isa = PBXGroup;
 			children = (
 				949D80871FB4C1BE0090C80C /* Pearson */,
 				949D80861FB4C1BE0090C80C /* Products */,
+				99F4D2FA56E89DAD0A533F59 /* Pods */,
+				2EBB57A85DC81A7153341DF2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -93,21 +190,12 @@
 		949D80871FB4C1BE0090C80C /* Pearson */ = {
 			isa = PBXGroup;
 			children = (
-				949D809A1FB4C2FE0090C80C /* Shared */,
+				7FDA42FE1FB9FE7D00B04F9D /* Shared */,
 				949D809B1FB4C2FE0090C80C /* Application */,
 				949D80A61FB4C2FE0090C80C /* Modules */,
 				949D808A1FB4C1BE0090C80C /* ViewController.swift */,
 			);
 			path = Pearson;
-			sourceTree = "<group>";
-		};
-		949D809A1FB4C2FE0090C80C /* Shared */ = {
-			isa = PBXGroup;
-			children = (
-				949D80AE1FB4C46A0090C80C /* Models */,
-				949D80AF1FB4C46A0090C80C /* Services */,
-			);
-			path = Shared;
 			sourceTree = "<group>";
 		};
 		949D809B1FB4C2FE0090C80C /* Application */ = {
@@ -157,20 +245,6 @@
 			path = Modules;
 			sourceTree = "<group>";
 		};
-		949D80AE1FB4C46A0090C80C /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		949D80AF1FB4C46A0090C80C /* Services */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
 		949D80B01FB4C4750090C80C /* Cources */ = {
 			isa = PBXGroup;
 			children = (
@@ -180,6 +254,7 @@
 				949D80D21FB4C4DD0090C80C /* CoursesRouter.swift */,
 				949D80D31FB4C4DD0090C80C /* CoursesViewController.swift */,
 				949D80D41FB4C4DD0090C80C /* CoursesWorker.swift */,
+				7FDA43091FBA143C00B04F9D /* Main.storyboard */,
 			);
 			path = Cources;
 			sourceTree = "<group>";
@@ -192,7 +267,9 @@
 				949D80C51FB4C4CC0090C80C /* AuthPresenter.swift */,
 				949D80C61FB4C4CC0090C80C /* AuthRouter.swift */,
 				949D80C71FB4C4CC0090C80C /* AuthViewController.swift */,
+				7FDA42FC1FB9FCEA00B04F9D /* LoginViewController.swift */,
 				949D80C81FB4C4CC0090C80C /* AuthWorker.swift */,
+				7FDA42FA1FB9FCC100B04F9D /* Auth.storyboard */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -210,6 +287,15 @@
 			path = Account;
 			sourceTree = "<group>";
 		};
+		99F4D2FA56E89DAD0A533F59 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D5E9F2143332A1590FBF9D83 /* Pods-Pearson.debug.xcconfig */,
+				2B5440B70895D2D535C68993 /* Pods-Pearson.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -217,9 +303,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 949D80971FB4C1BE0090C80C /* Build configuration list for PBXNativeTarget "Pearson" */;
 			buildPhases = (
+				C9E3A199CDBBB29E9D60A12C /* [CP] Check Pods Manifest.lock */,
 				949D80811FB4C1BE0090C80C /* Sources */,
 				949D80821FB4C1BE0090C80C /* Frameworks */,
 				949D80831FB4C1BE0090C80C /* Resources */,
+				0C38A7F0DE867C5487885249 /* [CP] Embed Pods Frameworks */,
+				9E0813D6259A456642E4364B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -271,12 +360,72 @@
 			files = (
 				949D80A91FB4C2FE0090C80C /* LaunchScreen.storyboard in Resources */,
 				949D80A81FB4C2FE0090C80C /* Assets.xcassets in Resources */,
+				7FDA42FB1FB9FCC100B04F9D /* Auth.storyboard in Resources */,
+				7FDA430A1FBA143C00B04F9D /* Main.storyboard in Resources */,
 				949D80AB1FB4C2FE0090C80C /* Info.plist in Resources */,
 				949D80AA1FB4C2FE0090C80C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0C38A7F0DE867C5487885249 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Pearson/Pods-Pearson-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pearson/Pods-Pearson-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9E0813D6259A456642E4364B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pearson/Pods-Pearson-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C9E3A199CDBBB29E9D60A12C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Pearson-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		949D80811FB4C1BE0090C80C /* Sources */ = {
@@ -285,14 +434,19 @@
 			files = (
 				949D80CE1FB4C4CC0090C80C /* AuthWorker.swift in Sources */,
 				949D80D61FB4C4DD0090C80C /* CoursesModels.swift in Sources */,
+				7FDA43081FBA02CD00B04F9D /* PearsonAPI.swift in Sources */,
+				7FDA43031FB9FE8B00B04F9D /* UIStoryboardExtensions.swift in Sources */,
 				949D80D81FB4C4DD0090C80C /* CoursesRouter.swift in Sources */,
 				949D80D51FB4C4DD0090C80C /* CoursesInteractor.swift in Sources */,
 				949D80AD1FB4C33D0090C80C /* AppDependencies.swift in Sources */,
+				7FDA430D1FBA158600B04F9D /* MainTabBarViewController.swift in Sources */,
+				7FDA43141FBA26D400B04F9D /* User.swift in Sources */,
 				949D80A71FB4C2FE0090C80C /* AppDelegate.swift in Sources */,
 				949D80BD1FB4C4960090C80C /* AccountViewController.swift in Sources */,
 				949D80BA1FB4C4960090C80C /* AccountModels.swift in Sources */,
 				949D80CB1FB4C4CC0090C80C /* AuthPresenter.swift in Sources */,
 				949D80D91FB4C4DD0090C80C /* CoursesViewController.swift in Sources */,
+				7FDA42FD1FB9FCEA00B04F9D /* LoginViewController.swift in Sources */,
 				949D80B91FB4C4960090C80C /* AccountInteractor.swift in Sources */,
 				949D80D71FB4C4DD0090C80C /* CoursesPresenter.swift in Sources */,
 				949D80BC1FB4C4960090C80C /* AccountRouter.swift in Sources */,
@@ -300,7 +454,10 @@
 				949D80CC1FB4C4CC0090C80C /* AuthRouter.swift in Sources */,
 				949D80BE1FB4C4960090C80C /* AccountWorker.swift in Sources */,
 				949D80CD1FB4C4CC0090C80C /* AuthViewController.swift in Sources */,
+				7FDA43121FBA200800B04F9D /* PearsonAuthenticatedAPI.swift in Sources */,
 				949D80DA1FB4C4DD0090C80C /* CoursesWorker.swift in Sources */,
+				7FDA43101FBA16D500B04F9D /* AppHelper.swift in Sources */,
+				7FDA43061FB9FF3C00B04F9D /* XAppToken.swift in Sources */,
 				949D80CA1FB4C4CC0090C80C /* AuthModels.swift in Sources */,
 				949D80BB1FB4C4960090C80C /* AccountPresenter.swift in Sources */,
 				949D808B1FB4C1BE0090C80C /* ViewController.swift in Sources */,
@@ -438,6 +595,7 @@
 		};
 		949D80981FB4C1BE0090C80C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D5E9F2143332A1590FBF9D83 /* Pods-Pearson.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -453,6 +611,7 @@
 		};
 		949D80991FB4C1BE0090C80C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B5440B70895D2D535C68993 /* Pods-Pearson.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

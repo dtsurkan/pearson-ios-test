@@ -15,14 +15,18 @@ import UIKit
 enum Account {
     // MARK: Use cases
   
-    enum Something {
+    enum FetchProfile {
         struct Request {
         }
         
         struct Response {
+            var user: User?
+            var printableError: String?
         }
     
         struct ViewModel {
+            var user: User?
+            var printableError: String?
         }
     }
 }

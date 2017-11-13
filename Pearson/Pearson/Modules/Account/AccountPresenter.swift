@@ -13,16 +13,23 @@
 import UIKit
 
 protocol AccountPresentationLogic {
-    func presentSomething(response: Account.Something.Response)
+    func presentUser(response: Account.FetchProfile.Response)
+    func presentError(response: Account.FetchProfile.Response)
 }
 
 class AccountPresenter: AccountPresentationLogic {
     weak var viewController: AccountDisplayLogic?
   
-    // MARK: Do something
-  
-    func presentSomething(response: Account.Something.Response) {
-        let viewModel = Account.Something.ViewModel()
-        viewController?.displaySomething(viewModel: viewModel)
+    // MARK: - Fethc User
+    
+    func presentUser(response: Account.FetchProfile.Response) {
+        let viewModel = Account.FetchProfile.ViewModel(user: response.user, printableError: response.printableError)
+        viewController?.displayUser(viewModel: viewModel)
     }
+    
+    func presentError(response: Account.FetchProfile.Response) {
+        let viewModel = Account.FetchProfile.ViewModel(user: response.user, printableError: response.printableError)
+        viewController?.displayError(viewModel: viewModel)
+    }
+  
 }

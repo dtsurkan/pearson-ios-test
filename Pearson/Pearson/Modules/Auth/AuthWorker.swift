@@ -14,6 +14,18 @@ import UIKit
 
 class AuthWorker {
   
-    func doSomeWork() {
+    func auth(login: String, password: String, completion: @escaping (String?, String?) -> Void) {
+        pearsonProvider.request(.auth(login: login, password: password)) { (result) in
+            do {
+                let response = try result.dematerialize()
+                let json = try JSONSerialization.jsonObject(with: response.data, options: []) as! [String : Any]
+                let token = json["access_token"]
+                UserDefaults.standard.set(token, forKey: XAppToken.DefaultsKeys.TokenKey.rawValue)
+                completion(token as? String, nil)
+            } catch {
+                let printableError = error as CustomStringConvertible
+                completion(nil, printableError as? String)
+            }
+        }
     }
 }

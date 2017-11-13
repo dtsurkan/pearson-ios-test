@@ -13,25 +13,33 @@
 import UIKit
 
 protocol AuthBusinessLogic {
-    func doSomething(request: Auth.Something.Request)
+    func auth(request: Auth.AuthProcess.Request)
 }
 
 protocol AuthDataStore {
-    //var name: String { get set }
+    var login: String { get set }
+    var accessToken: String { get set }
 }
 
 class AuthInteractor: AuthBusinessLogic, AuthDataStore {
     var presenter: AuthPresentationLogic?
     var worker: AuthWorker?
-    //var name: String = ""
+    var login: String = ""
+    var accessToken: String = ""
   
-    // MARK: Do something
+    // MARK: - Auth
   
-    func doSomething(request: Auth.Something.Request) {
+    func auth(request: Auth.AuthProcess.Request) {
         worker = AuthWorker()
-        worker?.doSomeWork()
-    
-        let response = Auth.Something.Response()
-        presenter?.presentSomething(response: response)
+        worker?.auth(login: request.login, password: request.password, completion: { (token, error) in
+            if let theToken = token {
+                self.accessToken = theToken
+                let response = Auth.AuthProcess.Response(accessToken: self.accessToken, printableError: nil)
+                self.presenter?.presentAuthentificaedUser(response: response)
+            } else {
+                let response = Auth.AuthProcess.Response(accessToken: nil, printableError: error)
+                self.presenter?.presentError(response: response)
+            }
+        })
     }
 }

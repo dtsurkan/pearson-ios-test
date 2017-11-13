@@ -15,14 +15,20 @@ import UIKit
 enum Auth {
     // MARK: Use cases
   
-    enum Something {
+    enum AuthProcess {
         struct Request {
+            var login: String
+            var password: String
         }
         
         struct Response {
+            var accessToken: String?
+            var printableError: String?
         }
     
         struct ViewModel {
+            var accessToken: String?
+            var printableError: String?
         }
     }
 }

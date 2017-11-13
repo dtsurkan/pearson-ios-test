@@ -11,13 +11,26 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow?
+    var window: UIWindow? = UIWindow(frame: CGRect(x: 0,
+                                                   y: 0,
+                                                   width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
     var appDependencies = AppDependencies()
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        if UserDefaults.standard.object(forKey: XAppToken.DefaultsKeys.TokenKey.rawValue) != nil {
+            // show tab bar
+            let controller = UIStoryboard.main().viewController(withID: .tabBarController) as! MainTabBarViewController
+            window?.rootViewController = controller
+        } else {
+            // show auth
+            let controller = UIStoryboard.auth().viewController(withID: .loginViewController) as! LoginViewController
+            let navController = UINavigationController(rootViewController: controller)
+            window?.rootViewController = navController
+        }
+        window?.makeKeyAndVisible()
         appDependencies.setupDependenciesForApplication(application, launchOptions: launchOptions)
         
         return true
@@ -45,6 +58,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    func switchRootViewController(to viewController: UIViewController) {
+        UIView.transition(with: window!, duration: 0.3, options: .transitionFlipFromLeft, animations: {
+            self.window?.rootViewController = nil
+            self.window?.rootViewController = viewController
+        }) { _ in }
+    }
 
 }
 

@@ -13,25 +13,31 @@
 import UIKit
 
 protocol AccountBusinessLogic {
-    func doSomething(request: Account.Something.Request)
+    func fetchProfile(request: Account.FetchProfile.Request)
 }
 
 protocol AccountDataStore {
-    //var name: String { get set }
+    var user: User? { get set }
 }
 
 class AccountInteractor: AccountBusinessLogic, AccountDataStore {
     var presenter: AccountPresentationLogic?
     var worker: AccountWorker?
-    //var name: String = ""
+    var user: User?
   
-    // MARK: Do something
+    // MARK: - Fetch Profile
   
-    func doSomething(request: Account.Something.Request) {
+    func fetchProfile(request: Account.FetchProfile.Request) {
         worker = AccountWorker()
-        worker?.doSomeWork()
-    
-        let response = Account.Something.Response()
-        presenter?.presentSomething(response: response)
+        worker?.fetchProfile(completion: { (user, error) in
+            if let theUser = user {
+                self.user = theUser
+                let response = Account.FetchProfile.Response(user: self.user, printableError: nil)
+                self.presenter?.presentUser(response: response)
+            } else {
+                let response = Account.FetchProfile.Response(user: nil, printableError: error)
+                self.presenter?.presentError(response: response)
+            }
+        })
     }
 }
