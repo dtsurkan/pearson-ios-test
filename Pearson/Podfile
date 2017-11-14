@@ -7,4 +7,5 @@ target 'Pearson' do
 
   # Pods for Pearson
   pod 'Moya'
+  pod 'SDWebImage', '~> 4.0'
 end

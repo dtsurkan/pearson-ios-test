@@ -15,6 +15,7 @@ struct Course {
     var thumbnail: String
     var subject: String
     var grade: String
+    var moodleDiscussionForumId: String
 }
 
 extension Course {
@@ -23,7 +24,11 @@ extension Course {
         let name = data["name"] as! String
         let thumbnail = data["thumbnail"] as! String
         let subject = data["subject"] as! String
-        let grade = data["subject"] as! String
-        return Course(id: id, name: name, thumbnail: thumbnail, subject: subject, grade: grade)
+        let grade = data["grade"] as! String
+        var moodleDiscussionForumId = ""
+        if let forumId = data["moodleDiscussionForumId"] as? String {
+            moodleDiscussionForumId = forumId
+        }
+        return Course(id: id, name: name, thumbnail: thumbnail, subject: subject, grade: grade, moodleDiscussionForumId: moodleDiscussionForumId)
     }
 }

@@ -9,6 +9,10 @@
 import Foundation
 import UIKit
 
+enum NotificationKeys {
+    static let signOutNotificationKey = Notification.Name(rawValue: "SignOutNotificationKey")
+}
+
 func appDelegate() -> AppDelegate {
     return UIApplication.shared.delegate as! AppDelegate
 }

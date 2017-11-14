@@ -24,7 +24,6 @@
 		949D80A71FB4C2FE0090C80C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949D809D1FB4C2FE0090C80C /* AppDelegate.swift */; };
 		949D80A81FB4C2FE0090C80C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 949D80A01FB4C2FE0090C80C /* Assets.xcassets */; };
 		949D80A91FB4C2FE0090C80C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 949D80A11FB4C2FE0090C80C /* LaunchScreen.storyboard */; };
-		949D80AA1FB4C2FE0090C80C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 949D80A31FB4C2FE0090C80C /* Main.storyboard */; };
 		949D80AB1FB4C2FE0090C80C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 949D80A51FB4C2FE0090C80C /* Info.plist */; };
 		949D80AD1FB4C33D0090C80C /* AppDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949D80AC1FB4C33D0090C80C /* AppDependencies.swift */; };
 		949D80B91FB4C4960090C80C /* AccountInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949D80B31FB4C4960090C80C /* AccountInteractor.swift */; };
@@ -69,7 +68,6 @@
 		949D809D1FB4C2FE0090C80C /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		949D80A01FB4C2FE0090C80C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		949D80A21FB4C2FE0090C80C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		949D80A41FB4C2FE0090C80C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		949D80A51FB4C2FE0090C80C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		949D80AC1FB4C33D0090C80C /* AppDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencies.swift; sourceTree = "<group>"; };
 		949D80B31FB4C4960090C80C /* AccountInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInteractor.swift; sourceTree = "<group>"; };
@@ -238,7 +236,6 @@
 			children = (
 				949D80A01FB4C2FE0090C80C /* Assets.xcassets */,
 				949D80A11FB4C2FE0090C80C /* LaunchScreen.storyboard */,
-				949D80A31FB4C2FE0090C80C /* Main.storyboard */,
 				949D80A51FB4C2FE0090C80C /* Info.plist */,
 			);
 			path = BundleFiles;
@@ -373,7 +370,6 @@
 				7FDA430A1FBA143C00B04F9D /* Main.storyboard in Resources */,
 				7FDA431A1FBA39D800B04F9D /* CourseTableViewCell.xib in Resources */,
 				949D80AB1FB4C2FE0090C80C /* Info.plist in Resources */,
-				949D80AA1FB4C2FE0090C80C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,12 +386,14 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -485,14 +483,6 @@
 				949D80A21FB4C2FE0090C80C /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		949D80A31FB4C2FE0090C80C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				949D80A41FB4C2FE0090C80C /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -617,7 +607,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.dtsurkan.Pearson;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -633,7 +623,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.dtsurkan.Pearson;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

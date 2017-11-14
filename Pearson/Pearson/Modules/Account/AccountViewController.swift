@@ -20,7 +20,12 @@ protocol AccountDisplayLogic: class {
 class AccountViewController: UIViewController, AccountDisplayLogic {
     var interactor: AccountBusinessLogic?
     var router: (NSObjectProtocol & AccountRoutingLogic & AccountDataPassing)?
-
+    var user: User?
+    
+    // MARK: - Outlets
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
+    
     // MARK: Object lifecycle
   
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -70,6 +75,11 @@ class AccountViewController: UIViewController, AccountDisplayLogic {
         alertController.addAction(okAction)
         self.present(alertController, animated: true, completion: nil)
     }
+    
+    func renderSubviews() {
+        nameLabel.text = "\((user?.firstName)!) \((user?.lastName)!)"
+        emailLabel.text = user?.email
+    }
   
     // MARK: - Fetch Profile
   
@@ -83,6 +93,13 @@ class AccountViewController: UIViewController, AccountDisplayLogic {
     }
     
     func displayUser(viewModel: Account.FetchProfile.ViewModel) {
-        
+        self.user = viewModel.user
+        renderSubviews()
+    }
+    
+    // MARK: - Actions
+    
+    @IBAction func logoutButtonPressed(_ sender: Any) {
+        NotificationCenter.default.post(name: NotificationKeys.signOutNotificationKey, object: nil)
     }
 }

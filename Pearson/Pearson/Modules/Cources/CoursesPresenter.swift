@@ -26,7 +26,7 @@ class CoursesPresenter: CoursesPresentationLogic {
         let textBooks = Course(id: "99991",
                                name: "All Courses",
                                thumbnail: "https://s3.amazonaws.com/pulse-lms/content/default_textbooks.jpg",
-                               subject: "Textbooks", grade: "")
+                               subject: "Textbooks", grade: "", moodleDiscussionForumId: "")
         var courses = response.courses
         courses.append(textBooks)
         let viewModel = Courses.FetchCourses.ViewModel(courses: courses, printableError: response.printableError)

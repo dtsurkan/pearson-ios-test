@@ -88,11 +88,12 @@ class AuthViewController: UIViewController, AuthDisplayLogic {
     // MARK: - Actions
     
     @IBAction func loginButtonPressed(_ sender: Any) {
-        if let text = passwordTextField.text, text.isEmpty {
+        if let password = passwordTextField.text, password.isEmpty {
             showAlert(withTitle: "Warning", message: "Password can't be empty")
             return
         }
-        let request = Auth.AuthProcess.Request(login: "devdemo", password: "Secret12")
+//        let request = Auth.AuthProcess.Request(login: "devdemo", password: "Secret12")
+        let request = Auth.AuthProcess.Request(login: (router?.dataStore?.login)!, password: passwordTextField.text!)
         interactor?.auth(request: request)
     }
 }

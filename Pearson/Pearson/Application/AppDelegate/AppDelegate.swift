@@ -64,6 +64,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window?.rootViewController = viewController
         }) { _ in }
     }
+    
+    func switchTo(auth: UINavigationController) {
+        UIView.transition(with: window!, duration: 0.3, options: .transitionFlipFromLeft, animations: {
+            self.window?.rootViewController = nil
+            self.window?.rootViewController = auth
+        }) { _ in }
+    }
 
 }
 

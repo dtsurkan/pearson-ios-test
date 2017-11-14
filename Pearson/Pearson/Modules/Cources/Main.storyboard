@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13526" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13524"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,7 +23,7 @@
         <scene sceneID="F7I-uZ-dXk">
             <objects>
                 <navigationController id="XJh-Bf-MmA" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Account" id="RgY-5Z-vEH"/>
+                    <tabBarItem key="tabBarItem" title="Account" selectedImage="deselected_account_icon" id="RgY-5Z-vEH"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jeo-CC-8TK">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -55,6 +55,9 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="logoutButtonPressed:" destination="Z90-eX-8FN" eventType="touchUpInside" id="Ufh-di-PuA"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mt3-oo-9ZB">
                                 <rect key="frame" x="142.5" y="89" width="90" height="90"/>
@@ -107,6 +110,10 @@
                         <color key="badgeColor" red="0.21176470589999999" green="0.4941176471" blue="0.62352941179999999" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" id="lQy-Qu-vhZ"/>
+                    <connections>
+                        <outlet property="emailLabel" destination="Q1a-Ob-wbx" id="6bF-Lv-oU6"/>
+                        <outlet property="nameLabel" destination="Rd1-in-nm3" id="gIi-z4-h6R"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vm1-Nd-uKA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -170,7 +177,9 @@
         <scene sceneID="d0b-2V-PAn">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gU8-8f-GTl" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Courses" image="selected_courses_icon" id="2rv-NS-NJi"/>
+                    <tabBarItem key="tabBarItem" title="Courses" selectedImage="selected_courses_icon" id="2rv-NS-NJi">
+                        <color key="badgeColor" name="systemGreenColor" catalog="System" colorSpace="catalog"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QyU-z6-DgF">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -187,6 +196,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="deselected_account_icon" width="21" height="21"/>
         <image name="selected_courses_icon" width="24" height="21"/>
     </resources>
 </document>

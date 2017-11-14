@@ -122,7 +122,7 @@ extension CoursesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CourseTableViewCell.identifier, for: indexPath) as! CourseTableViewCell
-        //cell.textLabel?.text = self.courses[indexPath.row].name
+        cell.fillIn(course: self.courses[indexPath.row])
         return cell
     }
     
