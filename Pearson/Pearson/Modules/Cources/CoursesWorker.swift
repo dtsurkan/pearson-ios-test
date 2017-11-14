@@ -13,7 +13,22 @@
 import UIKit
 
 class CoursesWorker {
-  
-    func doSomeWork() {
+    
+    func fetchCourses(completion: @escaping ([Course]?, String?) -> Void) {
+        pearsonAuthenticatedProvider.request(.myCourses) { (result) in
+            do {
+                let response = try result.dematerialize()
+                let json = try JSONSerialization.jsonObject(with: response.data, options: [])
+                if let array = json as? [[String: Any]] {
+                    let courses = array.map { Course.parse(data: $0) }
+                    completion(courses, nil)
+                } else {
+                    completion([], nil)
+                }
+            } catch {
+                let printableError = error as CustomStringConvertible
+                completion(nil, printableError as? String)
+            }
+        }
     }
 }

@@ -13,25 +13,31 @@
 import UIKit
 
 protocol CoursesBusinessLogic {
-    func doSomething(request: Courses.Something.Request)
+    func fetchCourses(request: Courses.FetchCourses.Request)
 }
 
 protocol CoursesDataStore {
-    //var name: String { get set }
+    var courses: [Course] { get set }
 }
 
 class CoursesInteractor: CoursesBusinessLogic, CoursesDataStore {
     var presenter: CoursesPresentationLogic?
     var worker: CoursesWorker?
-    //var name: String = ""
+    var courses: [Course] = []
   
-    // MARK: Do something
+    // MARK: - Fetch Courses
   
-    func doSomething(request: Courses.Something.Request) {
+    func fetchCourses(request: Courses.FetchCourses.Request) {
         worker = CoursesWorker()
-        worker?.doSomeWork()
-    
-        let response = Courses.Something.Response()
-        presenter?.presentSomething(response: response)
+        worker?.fetchCourses(completion: { (courses, error) in
+            if let theCources = courses {
+                self.courses = theCources
+                let response = Courses.FetchCourses.Response(courses: theCources, printableError: nil)
+                self.presenter?.presentCourses(response: response)
+            } else {
+                let response = Courses.FetchCourses.Response(courses: [], printableError: error)
+                self.presenter?.presentError(response: response)
+            }
+        })
     }
 }

@@ -13,12 +13,18 @@
 import UIKit
 
 protocol CoursesDisplayLogic: class {
-    func displaySomething(viewModel: Courses.Something.ViewModel)
+    func displayError(viewModel: Courses.FetchCourses.ViewModel)
+    func displayCourses(viewModel: Courses.FetchCourses.ViewModel)
 }
 
 class CoursesViewController: UIViewController, CoursesDisplayLogic {
     var interactor: CoursesBusinessLogic?
     var router: (NSObjectProtocol & CoursesRoutingLogic & CoursesDataPassing)?
+    var courses: [Course] = []
+    
+    // MARK: - Outlets
+    
+    @IBOutlet weak var tableView: UITableView!
 
     // MARK: Object lifecycle
   
@@ -47,34 +53,82 @@ class CoursesViewController: UIViewController, CoursesDisplayLogic {
         router.dataStore = interactor
     }
   
-    // MARK: Routing
-  
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let scene = segue.identifier {
-            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-            if let router = router, router.responds(to: selector) {
-                router.perform(selector, with: segue)
-            }
-        }
-    }
-  
     // MARK: View lifecycle
   
     override func viewDidLoad() {
         super.viewDidLoad()
-        doSomething()
+        fetchCoursesOnLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        configureView()
+    }
+    
+    // MARK: - Internal
+    
+    private func configureView() {
+        configureNavigationView()
+        configureTableView()
+    }
+    
+    private func configureNavigationView() {
+        navigationController?.navigationBar.barTintColor = UIColor(red: 58/255, green: 126/255, blue: 157/255, alpha: 1.0)
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        navigationItem.title = "My Courses"
+    }
+    
+    private func configureTableView() {
+        let nib = UINib(nibName: CourseTableViewCell.nibName, bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: CourseTableViewCell.identifier)
+        tableView.tableFooterView = UIView()
+    }
+    
+    private func showAlert(withTitle title: String, message: String?) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
     }
   
-    // MARK: Do something
+    // MARK: - Fetch Courses
   
-    //@IBOutlet weak var nameTextField: UITextField!
-  
-    func doSomething() {
-        let request = Courses.Something.Request()
-        interactor?.doSomething(request: request)
+    func fetchCoursesOnLoad() {
+        let request = Courses.FetchCourses.Request()
+        interactor?.fetchCourses(request: request)
     }
   
-    func displaySomething(viewModel: Courses.Something.ViewModel) {
-        //nameTextField.text = viewModel.name
+    func displayError(viewModel: Courses.FetchCourses.ViewModel) {
+        showAlert(withTitle: "Can't load courses", message: viewModel.printableError!)
     }
+    
+    func displayCourses(viewModel: Courses.FetchCourses.ViewModel) {
+        self.courses = viewModel.courses
+        tableView.reloadData()
+    }
+}
+
+// MARK: - UITableViewDelegate, UITableViewDataSource
+extension CoursesViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int  {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.courses.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: CourseTableViewCell.identifier, for: indexPath) as! CourseTableViewCell
+        //cell.textLabel?.text = self.courses[indexPath.row].name
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 200
+    }
+    
+    
+    
 }

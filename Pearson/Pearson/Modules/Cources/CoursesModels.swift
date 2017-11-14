@@ -15,14 +15,18 @@ import UIKit
 enum Courses {
     // MARK: Use cases
   
-    enum Something {
+    enum FetchCourses {
         struct Request {
         }
         
         struct Response {
+            var courses: [Course]
+            var printableError: String?
         }
     
         struct ViewModel {
+            var courses: [Course]
+            var printableError: String?
         }
     }
 }

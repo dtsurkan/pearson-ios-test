@@ -26,21 +26,40 @@
             </objects>
             <point key="canvasLocation" x="444" y="242"/>
         </scene>
-        <!--Cources-->
+        <!--Courses View Controller-->
         <scene sceneID="i3J-gv-M0M">
             <objects>
                 <viewController storyboardIdentifier="CoursesViewController" id="mM5-vs-lfp" customClass="CoursesViewController" customModule="Pearson" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NES-LM-iel">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eWq-0o-8WM">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="mM5-vs-lfp" id="sqC-cg-vu6"/>
+                                    <outlet property="delegate" destination="mM5-vs-lfp" id="xmg-AB-Naw"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="eWq-0o-8WM" firstAttribute="top" secondItem="bA6-7f-VgT" secondAttribute="top" id="QHI-5C-nTa"/>
+                            <constraint firstItem="eWq-0o-8WM" firstAttribute="leading" secondItem="bA6-7f-VgT" secondAttribute="leading" id="TMx-FA-191"/>
+                            <constraint firstItem="bA6-7f-VgT" firstAttribute="bottom" secondItem="eWq-0o-8WM" secondAttribute="bottom" id="bzX-hI-SSC"/>
+                            <constraint firstItem="bA6-7f-VgT" firstAttribute="trailing" secondItem="eWq-0o-8WM" secondAttribute="trailing" id="tjt-2O-CiS"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="bA6-7f-VgT"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Cources" id="2rv-NS-NJi"/>
+                    <navigationItem key="navigationItem" id="9AR-ye-q4D"/>
+                    <connections>
+                        <outlet property="tableView" destination="eWq-0o-8WM" id="dIb-2M-JYl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BXK-r9-x6Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="444" y="-422"/>
+            <point key="canvasLocation" x="1599" y="-423"/>
         </scene>
         <!--Main Tab Bar View Controller-->
         <scene sceneID="iYw-L7-nsN">
@@ -52,13 +71,32 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="mM5-vs-lfp" kind="relationship" relationship="viewControllers" id="rxD-08-Uf7"/>
+                        <segue destination="gU8-8f-GTl" kind="relationship" relationship="viewControllers" id="rxD-08-Uf7"/>
                         <segue destination="Z90-eX-8FN" kind="relationship" relationship="viewControllers" id="Idn-BH-Wtj"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fOo-h3-Akj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-508" y="-90"/>
+        </scene>
+        <!--Cources-->
+        <scene sceneID="d0b-2V-PAn">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gU8-8f-GTl" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Cources" id="2rv-NS-NJi"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QyU-z6-DgF">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="mM5-vs-lfp" kind="relationship" relationship="rootViewController" id="ppi-DS-AkK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F1n-sX-VeN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="443.19999999999999" y="-422.78860569715147"/>
         </scene>
     </scenes>
 </document>

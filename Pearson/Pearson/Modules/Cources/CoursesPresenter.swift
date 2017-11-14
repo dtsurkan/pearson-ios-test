@@ -13,16 +13,28 @@
 import UIKit
 
 protocol CoursesPresentationLogic {
-    func presentSomething(response: Courses.Something.Response)
+    func presentCourses(response: Courses.FetchCourses.Response)
+    func presentError(response: Courses.FetchCourses.Response)
 }
 
 class CoursesPresenter: CoursesPresentationLogic {
     weak var viewController: CoursesDisplayLogic?
   
-    // MARK: Do something
+    // MARK: - Present Courses
   
-    func presentSomething(response: Courses.Something.Response) {
-        let viewModel = Courses.Something.ViewModel()
-        viewController?.displaySomething(viewModel: viewModel)
+    func presentCourses(response: Courses.FetchCourses.Response) {
+        let textBooks = Course(id: "99991",
+                               name: "All Courses",
+                               thumbnail: "https://s3.amazonaws.com/pulse-lms/content/default_textbooks.jpg",
+                               subject: "Textbooks", grade: "")
+        var courses = response.courses
+        courses.append(textBooks)
+        let viewModel = Courses.FetchCourses.ViewModel(courses: courses, printableError: response.printableError)
+        viewController?.displayCourses(viewModel: viewModel)
+    }
+    
+    func presentError(response: Courses.FetchCourses.Response) {
+        let viewModel = Courses.FetchCourses.ViewModel(courses: response.courses, printableError: response.printableError)
+        viewController?.displayError(viewModel: viewModel)
     }
 }

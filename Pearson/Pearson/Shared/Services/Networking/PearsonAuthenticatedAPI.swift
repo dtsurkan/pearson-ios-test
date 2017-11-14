@@ -25,27 +25,30 @@ let pearsonAuthenticatedProvider = MoyaProvider<PearsonAuthenticatedAPI>(plugins
 // MARK: - Provider support
 private extension String {
     var urlEscaped: String {
-        return self.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+        return self.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
     }
 }
 
 public enum PearsonAuthenticatedAPI {
-    
+    case myCourses
 }
 
 extension PearsonAuthenticatedAPI: TargetType {
     
-    public var baseURL: URL { return URL(string: "http://auth.pulse.pearson.com/user")! }
+    public var baseURL: URL { return URL(string: "https://api.pulse.pearson.com")! }
     
     public var path: String {
-        return ""
+        switch self {
+        case .myCourses:
+            return "/coursesection"
+        }
     }
     public var method: Moya.Method {
        return .get
     }
     
     public var task: Task {
-        return .requestPlain
+        return .requestParameters(parameters: ["schoolId": "5742722bca57901e00d6da44"], encoding: URLEncoding.default)
     }
     public var validate: Bool {
         return false

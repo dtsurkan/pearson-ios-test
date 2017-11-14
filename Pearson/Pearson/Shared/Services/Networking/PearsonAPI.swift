@@ -97,4 +97,13 @@ extension Moya.Response {
         }
         return array
     }
+    
+    func mapToArray() throws -> [[String: Any]] {
+        let any = try self.mapJSON()
+        guard let array = any as? [[String: Any]] else {
+            throw MoyaError.jsonMapping(self)
+        }
+        return array
+    }
 }
+
