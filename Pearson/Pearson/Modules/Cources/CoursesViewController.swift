@@ -73,8 +73,9 @@ class CoursesViewController: UIViewController, CoursesDisplayLogic {
     }
     
     private func configureNavigationView() {
-        navigationController?.navigationBar.barTintColor = UIColor(red: 58/255, green: 126/255, blue: 157/255, alpha: 1.0)
+        navigationController?.navigationBar.barTintColor = UIColor(red: 54/255.0, green: 126/255.0, blue: 159/255.0, alpha: 1.0)
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        
         navigationItem.title = "My Courses"
     }
     
@@ -126,7 +127,7 @@ extension CoursesViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+        return 285
     }
     
     

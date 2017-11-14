@@ -53,6 +53,12 @@ class AccountViewController: UIViewController, AccountDisplayLogic {
   
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationController?.navigationBar.barTintColor = UIColor(red: 54/255.0, green: 126/255.0, blue: 159/255.0, alpha: 1.0)
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        
+        navigationItem.title = "My Account"
+        
         fetchProfileOnLoad()
     }
     
